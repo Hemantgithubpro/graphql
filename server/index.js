@@ -1,16 +1,3 @@
-
-## Steps
-### Step 1: Create neccessary files
-1. Create a two folders: `client` and `server`.
-2. `npm init -y` in both folders.
-3. `npm install express` in `server` folder.
-
-### Step 2: Apollo Server
-We'll be using Apollo Server to create a GraphQL server. Apollo Server is a community-maintained open-source GraphQL server that works with all Node.js HTTP server frameworks: Express, Connect, Hapi, Koa, Restify, and Lambda.
-1. `npm install apollo-server-express graphql` in `server` folder.
-2. install body-parser middleware: `npm install body-parser` in `server` folder.
-3. Create a new file `server/index.js` and add the following code:
-```javascript
 // we will be using json placeholder api to fetch data. link: jsonplaceholder.typicode.com/todos
 const express = require('express');
 // const { ApolloServer, gql } = require('apollo-server-express');
@@ -37,6 +24,7 @@ async function startServer(){
                 getTodos: [Todo]
             }
         `,
+        // we write main logic in this resolver
         resolvers: {}
 
     });
@@ -59,13 +47,3 @@ async function startServer(){
 }
 
 startServer();
-```
-4. Run the server using `node server/index.js`.
-5. Open `http://localhost:8000/graphql` in your browser. You should see the GraphQL playground.
-
-### Step 3: Understanding typeDefs and resolvers
-1. `typeDefs` is a string that defines the schema of the GraphQL server. It defines the types of data that can be queried and the structure of the data.
-2. `resolvers` is an object that contains functions that resolve the queries defined in the `typeDefs`.
-
-
-<!-- ### Step 4: Fetching data from JSON Placeholder API -->
