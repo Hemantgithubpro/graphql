@@ -68,4 +68,21 @@ startServer();
 2. `resolvers` is an object that contains functions that resolve the queries defined in the `typeDefs`.
 
 
-<!-- ### Step 4: Fetching data from JSON Placeholder API -->
+### Step 4: Fetching data from JSON Placeholder API
+1. Install axios: `npm install axios` in `server` folder. axios is a promise-based HTTP client for the browser and Node.js. it helps us to make requests to the JSON Placeholder API.
+2. add types of axios: `npm install @types/axios` in `server` folder.
+3. Write following code:
+```javascript
+const axios = require('axios');
+// rest is same as above
+// resolvers is implemented as follows
+const resolvers = {
+    Query: {
+        getTodos: async () => {
+            const response = await axios.get('https://jsonplaceholder.typicode.com/todos');
+            return response.data;
+        }
+    }
+};
+```
+4. Now we hit different url for fetching data with different schema: link: `https://jsonplaceholder.typicode.com/users`.
