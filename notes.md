@@ -86,3 +86,8 @@ const resolvers = {
 };
 ```
 4. Now we hit different url for fetching data with different schema: link: `https://jsonplaceholder.typicode.com/users`.
+5. we completed index.js with much more lines of code, which i will skip for now.
+
+### Step 5: Frontend setup - React and Apollo Client
+1. Create a new React app: `npm create vite@latest` in `client` folder.
+2. Install Apollo Client: `npm install @apollo/client graphql` in `client` folder.

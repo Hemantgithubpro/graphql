@@ -39,7 +39,11 @@ async function startServer(){
         `,
         // we write main logic in this resolver
         resolvers: {
-			
+			Todo: {
+				user: async(todo)=> ( await axios.get(`https://jsonplaceholder.typicode.com/users/${todo.userId}`)).data
+			},
+
+
             Query:{
                 // i've hard coded it below, but we can fetch data from api as well
                 // getTodos: ()=>[
